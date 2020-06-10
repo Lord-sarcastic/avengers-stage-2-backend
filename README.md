@@ -20,6 +20,7 @@ This project is a dockerized micro-service for authentication written in Django 
 1. Run `git push task3 python-branch`. Remember to replace the alias if you changed it.
 1. Visit the URL of your forked repo. You'll see a button **Compare and pull request**. Click on it, type the appropriate messages and then make the pull request.
 1. Take a nap, you earned it no matter how little your change.
+1. You will find out you have contributed to something big.
 
 ## To contribute:
 
