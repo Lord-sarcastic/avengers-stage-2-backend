@@ -22,6 +22,7 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
 
+
     path(r'rest-auth/', include('rest_auth.urls'))
 
 from django.urls import path
@@ -62,3 +63,8 @@ if getattr(settings, 'REST_USE_JWT', False):
         path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
         path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     ]
+
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/registration', include('dj_rest_auth.registration.urls'))
+]
+>>>>>>> Fixed issue with JWT
