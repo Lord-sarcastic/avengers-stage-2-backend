@@ -19,12 +19,19 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path(r'rest-auth/', include('rest_auth.urls'))
 
 from django.urls import path
 from django.conf.urls import include
 
 urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('auth/', include('dj_rest_auth.urls')),
+    path('auth/registration', include('dj_rest_auth.registration.urls'))
+>>>>>>> Aeesha:Feature: Included urls for registration and provided a doc.http with url calls to test that it is working fine
+
+    path(r'rest-auth/', include('rest_auth.urls')),
     path('admin/', admin.site.urls),
     path('auth/', include('dj_rest_auth.urls')),
     path('auth/registration', include('dj_rest_auth.registration.urls'))
