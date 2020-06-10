@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 
 
+
 from django.urls import path,include
 
 urlpatterns = [
@@ -44,6 +45,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'rest-auth/', include('dj_rest_auth.urls'))
 >>>>>>> Reverted commit
+
+from django.urls import path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+>>>>>>> Revert "@Hussain:djangoauth"
 ]
 
 if getattr(settings, 'REST_USE_JWT', False):
