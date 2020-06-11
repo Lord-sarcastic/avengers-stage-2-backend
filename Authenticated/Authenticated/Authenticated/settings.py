@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'allauth.socialaccount',
     'rest_auth',
+    'django_rest_passwordreset'
 ]
 
 MIDDLEWARE = [
