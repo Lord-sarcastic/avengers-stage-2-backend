@@ -8,3 +8,9 @@
 
 # Database
 *.sqlite3
+
+# cpython files
+/__pycache__/*
+/__pycache__/
+/__pycache__
+__pycache__
