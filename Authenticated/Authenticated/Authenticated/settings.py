@@ -161,3 +161,23 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'authenticated'
 ACCOUNT_LOGOUT_ON_GET = True
+
+
+DJANGO_REST_PASSWORDRESET_IP_ADDRESS_HEADER = 'HTTP_X_FORWARDED_FOR'
+
+HTTP_USER_AGENT_HEADER = 'HTTP_USER_AGENT'
+
+DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
+    "CLASS": "django_rest_passwordreset.tokens.RandomStringTokenGenerator",
+    "OPTIONS": {
+        "min_length": 20,
+        "max_length": 30
+    }
+}
+DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
+    "CLASS": "django_rest_passwordreset.tokens.RandomNumberTokenGenerator",
+    "OPTIONS": {
+        "min_number": 1500,
+        "max_number": 9999
+    }
+}
