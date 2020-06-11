@@ -15,23 +15,9 @@ host = 'http://127.0.0.1:8000'
 
 
 def test(request):
-    url = 'http://127.0.0.1:8000/api/auth/login'
-    # headers = {"Authorization":"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTQ1MjI0MjAwLCJqdGkiOiJlMGQxZDY2MjE5ODc0ZTY3OWY0NjM0ZWU2NTQ2YTIwMCIsInVzZXJfaWQiOjF9.9eHat3CvRQYnb5EdcgYFzUyMobXzxlAVh_IAgqyvzCE"}
-
-    r = requests.post(url, data={'email':'louis.paul9095@gmail.com','password':'MONKEYSex9095'})
-    # print(r.json())
-    # access = r.json()['access_token']
-    # username = r.json()['user']['username']
-    # print(username)
-    # visit = requests.get(f'{host}/api/auth/user', 
-    # params={"username": username,"first_name":"", "last_name":""})
-    # visit = requests.get(f'{host}/reset/MQ/5h8-8448e71688a6009ded47/')
-    # data = visit.json()
-    # data['new_password1'] = 'MONKEYSex9095'
-    # data['new_password2'] = 'MONKEYSex9095'
-    # r = requests.post(f'{host}/api/auth/confirm', data=data)
-    return HttpResponse(r.content)
-
+    r = requests.post(f'{host}/api/auth/register', data={"username":"Louisane", "password1":"MONKEYSex",
+    "password2":"MONKEYSex", "email":"louis.paul9095@gmail.com"})
+    return HttpResponse(r.json())
 
 
 class RegistrationView(APIView):
@@ -89,4 +75,9 @@ class UserView(APIView):
 
     def get(self, request):
         r = requests.get(f'{host}/dj-rest-auth/user/', data=request.GET)
+        return Response(r.content)
+
+class VerifyEmailView(APIView):
+    def get(self, request, key):
+        r = requests.post(f'{host}/dj-rest-auth/registration/verify-email/', data={"key":key})
         return Response(r.content)
