@@ -1,7 +1,6 @@
 from rest_framework import generics
-
-from authentify import models
 from . import serializers
+from ..authentify import models
 
 
 class usernameauthentify(generics.ListCreateAPIView):
@@ -12,6 +11,7 @@ class usernameauthentify(generics.ListCreateAPIView):
 class emailauthentify(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Login.objects.all()
     serializer_class = serializers.LoginSerializer
+
 
 class passwordauthentify(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Login.objects.all()

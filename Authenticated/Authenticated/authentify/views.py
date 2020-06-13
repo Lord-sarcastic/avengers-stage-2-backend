@@ -5,28 +5,30 @@ from allauth.account.views import ConfirmEmailView
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 
+
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    return render(request, 'index.html')
+
 
 def register(request):
-
-    if request.method == 'POST' :
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
 
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
             passwords = form.cleaned_data['password1']
-            user = authenticate(username = username, password = passwords)
-            login(request,user)
+            user = authenticate(username=username, password=passwords)
+            login(request, user)
             return redirect('index')
     else:
         form = UserCreationForm()
 
     form = UserCreationForm()
-    context = {'form' : form}
+    context = {'form': form}
     return render(request, 'registration/register.html', context)
+
 
 class CustomConfirmEmailView(ConfirmEmailView):
     def get(self, *args, **kwargs):
